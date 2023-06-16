@@ -41,7 +41,7 @@ exports.signIn = async function (req, res) {
   const user = await User.findOne({ email: data.email }).select("+password");
   //check if user exist
   if (!user) {
-    return res.status(404).json({ message: "Invalid Credentials" });
+    return res.status(404).json({ message: "Invalid Credentials, try register" });
   } else {
       bcrypt.compare(data.password, user.password, (err, result) => {
         if (err) {
