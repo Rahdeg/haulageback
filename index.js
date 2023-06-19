@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { connectDatabase } = require("./src/config/database");
 const user_route = require("./src/routes/user.route");
+const expenses_route = require("./src/routes/expenses.route");
 const Errormiddleware = require("./src/middlewares/errormiddleware")
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(
   "/api/v1/users",
   user_route,
+  expenses_route,
 );
 
 
